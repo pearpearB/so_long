@@ -6,7 +6,7 @@
 /*   By: jabae <jabae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 16:02:55 by jabae             #+#    #+#             */
-/*   Updated: 2022/07/14 23:02:45 by jabae            ###   ########.fr       */
+/*   Updated: 2022/07/15 19:43:00 by jabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ typedef struct s_player
 
 typedef struct s_map
 {
-	char		**game; // ??
-	int			row; // 가로
-	int			col; // 세로
+	char		**blueprint; // 맵을 이중배열로
+	int			x; // 가로
+	int			y; // 세로
 	int			item_num; // 아이템 수
 	int			exit_num; // 출구 수, 최소 1개 이상 필요
 	int			start_x;
@@ -57,8 +57,8 @@ typedef struct s_game
 {
 	void	*mlx;
 	void	*window;
-	int		step; // 걸음 수
-	int		move[4][2]; // 상하좌우 x축 y축
+	int		steps; // 걸음 수
+	// int		move[4][2]; // 상하좌우 x축 y축
 	t_image		wall;
 	t_image		ground;
 	t_image		item;
@@ -66,5 +66,8 @@ typedef struct s_game
 	t_map			map;
 	t_player	player;
 }	t_game;
+
+void	ft_init_game(t_game *game, int fd);
+t_map	ft_parse_map(int fd);
 
 #endif

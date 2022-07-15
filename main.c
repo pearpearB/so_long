@@ -6,7 +6,7 @@
 /*   By: jabae <jabae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:46:21 by jabae             #+#    #+#             */
-/*   Updated: 2022/07/14 22:50:30 by jabae            ###   ########.fr       */
+/*   Updated: 2022/07/15 21:49:36 by jabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_error(char *message)
 {
-	ft_putstr_fd("[Error] ", 2);
+	ft_putendl_fd("Error", 2);
 	ft_putendl_fd(message, 2);
 	exit(EXIT_FAILURE);
 }
@@ -33,6 +33,21 @@ static int	ft_check_input(int argc, char *argv[])
 	if (fd < 0)
 		ft_error("Invalid File");
 	return (fd);
+}
+
+void	ft_init_game(t_game *game, int fd)
+{
+	game->map = ft_set_map(fd);
+	game->mlx = mlx_init();
+	if (!game->mlx)
+		ft_error("Mlx init");
+	game->window = mlx_new_window(game->mlx, game->map.x * 32, \
+		game->map.y * 32, "jabae's so_long");
+	if (!game->window)
+		ft_error("Mlx window");
+	// ft_init_move(game);
+	ft_set_image(game);
+	ft_set_player(game);
 }
 
 int	main(int argc, char *argv[])
