@@ -6,7 +6,7 @@
 /*   By: jabae <jabae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 16:02:55 by jabae             #+#    #+#             */
-/*   Updated: 2022/07/17 22:37:02 by jabae            ###   ########.fr       */
+/*   Updated: 2022/07/18 01:39:34 by jabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,13 @@
 # define BUFFER_SIZE 2
 # define IMG_SIZE 32
 
-// typedef struct s_image
-// {
-// 	int				x; // size
-// 	int				y; // size
-// 	void			*img;
-// }	t_image;
-
 typedef struct s_map
 {
-	char		**blueprint; // 맵을 이중배열로
-	int			x; // 가로
-	int			y; // 세로
-	int			item_num; // 아이템 수
-	int			exit_num; // 출구 수, 최소 1개 이상 필요
+	char		**blueprint;
+	int			x;
+	int			y;
+	int			item_num;
+	int			exit_num;
 	int			player_x;
 	int			player_y;
 }	t_map;
@@ -62,9 +55,12 @@ typedef struct s_game
 	t_map			map;
 }	t_game;
 
-t_map	ft_parse_map(int fd);
 void	ft_error(char *message);
-int		ft_exit(t_game *game);
+int ft_exit(t_game *game);
+int	ft_check_input(int argc, char *argv[]);
+void ft_check_map(t_map *map);
+void ft_check_set_element(t_map *map);
+t_map	ft_parsing_map(int fd);
 void	ft_set_image(t_game *game);
 void	ft_draw_map(t_game *game);
 void	ft_move_player(int key, t_game *game);

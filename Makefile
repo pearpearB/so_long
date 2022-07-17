@@ -6,7 +6,7 @@
 #    By: jabae <jabae@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/16 16:07:07 by jabae             #+#    #+#              #
-#    Updated: 2022/07/17 22:16:06 by jabae            ###   ########.fr        #
+#    Updated: 2022/07/18 01:55:35 by jabae            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,11 +20,10 @@ MLXFLAG = -L./mlx -lmlx -framework OpenGL -framework AppKit
 
 
 SRCS = so_long.c \
-			 parse_map.c \
-			 image.c \
-			 draw.c \
-			 move.c \
-			 utils.c
+			 parsing.c \
+			 check_valid.c \
+			 draw_and_set_image.c \
+			 move.c 
 
 
 OBJS = $(SRCS:.c=.o)

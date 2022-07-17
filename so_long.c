@@ -6,26 +6,23 @@
 /*   By: jabae <jabae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:46:21 by jabae             #+#    #+#             */
-/*   Updated: 2022/07/17 22:23:13 by jabae            ###   ########.fr       */
+/*   Updated: 2022/07/18 01:30:29 by jabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static int	ft_check_input(int argc, char *argv[]) // valid
+int ft_exit(t_game *game)
 {
-	int fd;
-	int file_len;
+	mlx_clear_window(game->mlx, game->window);
+	exit (EXIT_SUCCESS);
+}
 
-	if (argc != 2)
-		ft_error("Invalid Parameter");
-	file_len = ft_strlen(argv[1]);
-	if (file_len < 4 || ft_strncmp(&argv[1][file_len - 4], ".ber", 4))
-		ft_error("Invalid File name");
-	fd = open(argv[1], O_RDONLY);
-	if (fd < 0)
-		ft_error("Invalid File");
-	return (fd);
+void	ft_error(char *message)
+{
+	printf("Error\n");
+	printf("%s", message);
+	exit(EXIT_FAILURE);
 }
 
 static int ft_key_press(int key, t_game *game)
@@ -45,7 +42,7 @@ static int ft_key_press(int key, t_game *game)
 
 static void	ft_init_game(t_game *game, int fd)
 {
-	game->map = ft_parse_map(fd);
+	game->map = ft_parsing_map(fd);
 	game->mlx = mlx_init();
 	if (!game->mlx)
 		ft_error("Mlx init");
@@ -66,7 +63,7 @@ int	main(int argc, char *argv[])
 	ft_init_game(&game, fd);
 	ft_draw_map(&game);
 	mlx_hook(game.window, KEYCODE_PRESS, 0, ft_key_press, &game);
-	mlx_hook(game.window, KEYCODE_EXIT, 0, ft_exit, &game); // 왜 두 개가 다른 파라미터를 받을까
+	mlx_hook(game.window, KEYCODE_EXIT, 0, ft_exit, &game);
 	mlx_loop(game.mlx);
 	return(0);
 }
