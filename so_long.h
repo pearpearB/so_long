@@ -6,7 +6,7 @@
 /*   By: jabae <jabae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 16:02:55 by jabae             #+#    #+#             */
-/*   Updated: 2022/07/18 01:39:34 by jabae            ###   ########.fr       */
+/*   Updated: 2022/07/18 01:59:29 by jabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "./libft/libft.h"
 # include "./mlx/mlx.h"
-# include <stdlib.h>
 # include <stdio.h>
 # include <fcntl.h>
 
