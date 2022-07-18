@@ -64,6 +64,6 @@ t_map	ft_parsing_map(int fd)
 	map = ft_make_2Darray(fd);
 	ft_set_map(&map);
 	ft_check_map(&map);
-	ft_check_set_element(&map);
+	ft_check_and_set_element(&map);
 	return (map);
 }
