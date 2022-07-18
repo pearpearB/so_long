@@ -6,7 +6,7 @@
 /*   By: jabae <jabae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 00:23:58 by jabae             #+#    #+#             */
-/*   Updated: 2022/07/18 01:46:59 by jabae            ###   ########.fr       */
+/*   Updated: 2022/07/18 14:59:49 by jabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void ft_check_map(t_map *map)
 	}
 }
 
-void ft_check_set_element(t_map *map)
+void ft_check_and_set_element(t_map *map)
 {
 	int x;
 	int y;
