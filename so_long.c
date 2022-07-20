@@ -6,7 +6,7 @@
 /*   By: jabae <jabae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:46:21 by jabae             #+#    #+#             */
-/*   Updated: 2022/07/20 14:01:55 by jabae            ###   ########.fr       */
+/*   Updated: 2022/07/20 14:09:11 by jabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int ft_exit(t_game *game)
 
 void	ft_error(char *message)
 {
-	printf("Error\n");
-	printf("%s", message);
+	ft_putendl_fd("Error\n", 2);
+	ft_putendl_fd(message, 2);
 	exit(EXIT_FAILURE);
 }
 

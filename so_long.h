@@ -6,7 +6,7 @@
 /*   By: jabae <jabae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 16:02:55 by jabae             #+#    #+#             */
-/*   Updated: 2022/07/20 14:02:30 by jabae            ###   ########.fr       */
+/*   Updated: 2022/07/20 14:10:16 by jabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 
 typedef struct s_map
 {
-	char		**blueprint;
+	char		**map_frame;
 	int			x;
 	int			y;
 	int			item_num;

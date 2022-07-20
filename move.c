@@ -6,7 +6,7 @@
 /*   By: jabae <jabae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 14:56:33 by jabae             #+#    #+#             */
-/*   Updated: 2022/07/20 14:00:10 by jabae            ###   ########.fr       */
+/*   Updated: 2022/07/20 14:10:16 by jabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 static void ft_steps_and_draw(t_game *game, int dir_y, int dir_x)
 {
 	printf("steps: %d\n", ++game->steps);
-	game->map.blueprint[game->map.player_y][game->map.player_x] = '0';
+	game->map.map_frame[game->map.player_y][game->map.player_x] = '0';
 	game->map.player_x = dir_x;
 	game->map.player_y = dir_y;
-	game->map.blueprint[dir_y][dir_x] = 'P';
+	game->map.map_frame[dir_y][dir_x] = 'P';
 	ft_draw_map(game);
 }
 
@@ -31,9 +31,9 @@ void	ft_move_player(int key, t_game *game)
 
 	dir_y = game->map.player_y + y[key];
 	dir_x = game->map.player_x + x[key];
-	if (game->map.blueprint[dir_y][dir_x] == '1')
+	if (game->map.map_frame[dir_y][dir_x] == '1')
 		return ;
-	else if (game->map.blueprint[dir_y][dir_x] == 'E')
+	else if (game->map.map_frame[dir_y][dir_x] == 'E')
 	{
 		if (game->map.item_num == 0)
 		{
@@ -44,7 +44,7 @@ void	ft_move_player(int key, t_game *game)
 		else
 			return ;
 	}
-	else if (game->map.blueprint[dir_y][dir_x] == 'C')
+	else if (game->map.map_frame[dir_y][dir_x] == 'C')
 		game->map.item_num--;
 	ft_steps_and_draw(game, dir_y, dir_x);
 }
