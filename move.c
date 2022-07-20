@@ -6,7 +6,7 @@
 /*   By: jabae <jabae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 14:56:33 by jabae             #+#    #+#             */
-/*   Updated: 2022/07/18 01:55:44 by jabae            ###   ########.fr       */
+/*   Updated: 2022/07/20 14:00:10 by jabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ static void ft_steps_and_draw(t_game *game, int dir_y, int dir_x)
 
 void	ft_move_player(int key, t_game *game)
 {
-	int	y[4] = {-1, 0, 1, 0};
-	int x[4] = {0, -1, 0, 1};
-	int	dir_y;
-	int dir_x;
+	const int	y[4] = {-1, 0, 1, 0};
+	const int	x[4] = {0, -1, 0, 1};
+	int			dir_y;
+	int			dir_x;
 
 	dir_y = game->map.player_y + y[key];
 	dir_x = game->map.player_x + x[key];

@@ -6,7 +6,7 @@
 /*   By: jabae <jabae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:46:21 by jabae             #+#    #+#             */
-/*   Updated: 2022/07/18 01:30:29 by jabae            ###   ########.fr       */
+/*   Updated: 2022/07/20 14:01:55 by jabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int ft_exit(t_game *game)
 {
-	mlx_clear_window(game->mlx, game->window);
+	mlx_destroy_window(game->mlx, game->window);
 	exit (EXIT_SUCCESS);
 }
 
@@ -50,14 +50,14 @@ static void	ft_init_game(t_game *game, int fd)
 		game->map.y * 32, "jabae's so_long");
 	if (!game->window)
 		ft_error("Mlx window");
-	ft_set_image(game);
+	ft_set_image(game, 32);
 	game->steps = 0;
 }
 
 int	main(int argc, char *argv[])
 {
 	t_game	game;
-	int			fd;
+	int		fd;
 
 	fd = ft_check_input(argc, argv);
 	ft_init_game(&game, fd);
@@ -65,5 +65,5 @@ int	main(int argc, char *argv[])
 	mlx_hook(game.window, KEYCODE_PRESS, 0, ft_key_press, &game);
 	mlx_hook(game.window, KEYCODE_EXIT, 0, ft_exit, &game);
 	mlx_loop(game.mlx);
-	return(0);
+	return (0);
 }

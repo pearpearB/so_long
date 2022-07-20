@@ -6,7 +6,7 @@
 /*   By: jabae <jabae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 14:58:20 by jabae             #+#    #+#             */
-/*   Updated: 2022/07/18 01:55:06 by jabae            ###   ########.fr       */
+/*   Updated: 2022/07/20 13:58:51 by jabae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,25 +20,25 @@ static void	ft_put_img_window(t_game game, void *img, int x, int y)
 
 void	ft_draw_map(t_game *game)
 {
-	int	i;
-	int	j;
+	int	y;
+	int	x;
 
-	i = -1;
-	while (++i < game->map.y)
+	y = -1;
+	while (++y < game->map.y)
 	{
-		j = -1;
-		while (++j < game->map.x)
+		x = -1;
+		while (++x < game->map.x)
 		{
-			if (game->map.blueprint[i][j] == 'P')
-				ft_put_img_window(*game, game->player, j, i);
-			else if (game->map.blueprint[i][j] == 'E')
-				ft_put_img_window(*game, game->exit, j, i);
-			else if (game->map.blueprint[i][j] == 'C')
-				ft_put_img_window(*game, game->item, j, i);
-			else if (game->map.blueprint[i][j] == '1')
-				ft_put_img_window(*game, game->wall, j, i);
+			if (game->map.blueprint[y][x] == 'P')
+				ft_put_img_window(*game, game->player, x, y);
+			else if (game->map.blueprint[y][x] == 'E')
+				ft_put_img_window(*game, game->exit, x, y);
+			else if (game->map.blueprint[y][x] == 'C')
+				ft_put_img_window(*game, game->item, x, y);
+			else if (game->map.blueprint[y][x] == '1')
+				ft_put_img_window(*game, game->wall, x, y);
 			else
-				ft_put_img_window(*game, game->empty, j, i);
+				ft_put_img_window(*game, game->empty, x, y);
 		}
 	}
 }
